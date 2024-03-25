@@ -1,10 +1,15 @@
 import './App.css'
 
+
 const App = () => {
 
   return (
+    
     <main>
-      Hello Parameters
+      {/* Starter Code provided by teacher 
+          -- you can remove this once you've updated this file
+       */}
+      Hello World
     </main>
   )
 }
