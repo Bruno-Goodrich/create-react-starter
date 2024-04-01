@@ -1,8 +1,14 @@
+import { useState } from 'react';
 import './App.css'
-import { slots, spin, randomSym} from './slotMachine';
+import { slots, randomSymbol} from './slotMachine';
 
 
 const App = () => {
+const [symbol1, setSymbol1] = useState(randomSymbol())
+
+const spin = () => {
+  setSymbol1(randomSymbol())
+}
 
   return (
     <main>
@@ -10,9 +16,9 @@ const App = () => {
           -- you can remove this once you've updated this file
        */}
       Hello World
-      <h1>{slots[5]}</h1>
-      <button onClick={spin}>Spin</button>
-      <h1>{spin}</h1>
+      <h1>BWOONO & LOOSHIN</h1>
+     <button onClick={spin}>Spiny</button>
+     <div>{symbol1}</div>
     </main>
   )
 }
