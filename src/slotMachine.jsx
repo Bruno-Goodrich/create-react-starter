@@ -1,5 +1,4 @@
-export let slots = ["seven", "cherries", "cherries", "cherries", "bannana", "bannana", "bannana", "bannana", "bannana", "bannana", "plum", "plum", "plum", "plum", "plum", "plum", "lemon", "lemon", "lemon", "lemon", "lemon", "watermelon", "watermelon", "watermelon", "watermelon", "watermelon", "bell", "bell", "bell", "bell", "orange", "orange", "orange", "orange", "orange", "orange", "bars", "bars"];
-
+export let slots = ["seven","cherries", "cherries", "cherries", "bannana", "bannana", "bannana", "bannana", "bannana", "bannana", "plum", "plum", "plum", "plum", "plum", "plum", "lemon", "lemon", "lemon", "lemon", "lemon", "watermelon", "watermelon", "watermelon", "watermelon", "watermelon", "bell", "bell", "bell", "bell", "orange", "orange", "orange", "orange", "orange", "orange", "bars", "bars"];
 
 export const randomSymbol = () =>{
   let randomInt = Math.floor(Math.random() * slots.length)
@@ -20,6 +19,7 @@ export const randomSymbol = () =>{
   </div>
 }*/
 const getValueOfSymbol = (symbol) =>{
+  let value = 0
   if(symbol == "seven"){
     value = 100
   }
@@ -50,21 +50,25 @@ const getValueOfSymbol = (symbol) =>{
   return value
 }
 
-const winnings = (symbol1, symbol2, symbol3) =>{
-  if(symbol1 === symbol2 === symbol3){
-    let money = getValueOfSymbol(symbol1) * 3
-  }
-  else if(symbol1 == symbol2){
-    let money = getValueOfSymbol(symbol1) + getValueOfSymbol(symbol2)
-  }
-  else if(symbol1 == symbol3){
-    let money = getValueOfSymbol(symbol1) + getValueOfSymbol(symbol3)
-  }
-  else if(symbol3 == symbol2){
-    let money = getValueOfSymbol(symbol3) + getValueOfSymbol(symbol2)
+export const winnings = (symbol1, symbol2, symbol3) =>{ 
+  let money = 0
+  if(symbol1 === symbol2 &&  symbol2 === symbol3){
+    money = getValueOfSymbol(symbol1) * 3
   }
   else{
-    let money = 0
+    if(symbol1 == symbol2){
+      money = getValueOfSymbol(symbol1) + getValueOfSymbol(symbol2)
+    }
+    else if(symbol1 == symbol3){
+      money = getValueOfSymbol(symbol1) + getValueOfSymbol(symbol3)
+    }
+    else if(symbol3 == symbol2){
+      money = getValueOfSymbol(symbol3) + getValueOfSymbol(symbol2)
+    }
+    else {
+      money = money
+    }
   }
+  
   return money
 }
