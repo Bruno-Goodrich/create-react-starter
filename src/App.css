@@ -9,3 +9,24 @@ h1{
     font-size: 25px;
 }
 /* End starter code */
+
+button{
+    font-size: 25px;
+    color:black;
+    background-color:rgb(229, 184, 11);
+    border-width: 5px;
+    border-color: white;
+}
+
+.symbolz {
+    border: 2px solid white;
+    display: inline-flex;
+    width: 600px;
+    justify-content: space-evenly;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.sym {
+    border: 1px solid yellow;
+}
