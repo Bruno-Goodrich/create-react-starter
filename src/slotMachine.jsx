@@ -1,23 +1,11 @@
 export let slots = ["seven","cherries", "cherries", "cherries", "bannana", "bannana", "bannana", "bannana", "bannana", "bannana", "plum", "plum", "plum", "plum", "plum", "plum", "lemon", "lemon", "lemon", "lemon", "lemon", "watermelon", "watermelon", "watermelon", "watermelon", "watermelon", "bell", "bell", "bell", "bell", "orange", "orange", "orange", "orange", "orange", "orange", "bars", "bars"];
 
-export const randomSymbol = () =>{
+export const randomize = () =>{
   let randomInt = Math.floor(Math.random() * slots.length)
   let randomized = slots[randomInt]
   return randomized
 }
-/*export const SlotMachine = () =>{
- let randomSlot = 0
- 
- const spin = ()=>{
-   const randomSlot = Math.floor(Math.random * slots.length)
-   return randomSlot
- }
-  
- return <div>
-   <button onClick={spin()}>Spin</button>
-    <h1>{slots[randomSlot]}</h1>
-  </div>
-}*/
+
 const getValueOfSymbol = (symbol) =>{
   let value = 0
   if(symbol == "seven"){
