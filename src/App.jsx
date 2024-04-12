@@ -2,6 +2,37 @@ import { useState } from 'react';
 import './App.css'
 import { slots, randomize, winnings} from './slotMachine';
 
+const Strip = ({symbol}) => {
+    let symIndex = slots.indexOf(symbol)
+    let offset = -1 * symIndex * 100
+
+    const getColor = (s) =>{
+      if (s == 'bannana')return "yellowgreen"
+      if (s =='lemon')return "yellow"
+      if (s == 'watermelon')return "hotpink"
+      if (s == 'bars')return "white"
+      if (s == 'seven')return "red"
+      if (s == 'orange')return "orange"
+      if (s == 'cherries')return "crimson"
+      if (s == 'bell')return "darkgodlenrod"
+      if (s == 'plum')return "purple"
+    }
+
+  return (
+    <section class="slot-col">
+        <div class="strip"
+        style={{top: offset}}>
+          {slots.map(
+            (s)=>(<div className="slot-item"
+                style={{
+                  borderColor : getColor(s)
+                }}
+            >{s}</div>)
+          )}
+          </div>
+      </section>
+  )
+}
 
 const App = () => {
 const [symbol1, setSymbol1] = useState(randomize())
@@ -33,34 +64,19 @@ const getOffset = (symbol) =>{
 }
   return (
     <main>
-      <h1>Welcome to our slot machine that doesn't take real money. Click spiny to spin, doent lose all your money.</h1>
+      <h1>Welcome to our slot machine that doesn't take real money. Click spin to spin, doesn't lose all your money.</h1>
      <button onClick={spin}>Spin, -$50</button><br/>
      <div class ="symbolz">
-      <section class="slot-col">
-        <div class="strip"
-        style={{top: getOffset(symbol1)}}>
-          {slots.map(
-            (s)=>(<div className="slot-item">{s}</div>)
-          )}
-          </div>
-      </section>
-      <section class="slot-col">
-        <div class="strip"
-        style={{top: getOffset(symbol2)}}>
-          {slots.map(
-          (s)=>(<div className="slot-item">{s}</div>)
-        )}</div>
-      </section>
-      <section class="slot-col">
-        <div class="strip"
-        style={{top: getOffset(symbol3)}}> 
-        {slots.map(
-            (s)=>(<div className="slot-item">{s}</div>)
-          )}</div>
-        </section>
+
+      <Strip symbol={symbol1}/>
+      <Strip symbol={symbol2}/>
+      <Strip symbol={symbol3}/>
+
+
      </div>
      <div>you got ${dollar}</div>
      <div>${total + dollar}</div>
+     
     </main>
   )
 }
