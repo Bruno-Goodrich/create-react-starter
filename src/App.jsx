@@ -64,7 +64,8 @@ const getOffset = (symbol) =>{
 }
   return (
     <main>
-      <h1>Welcome to our slot machine that doesn't take real money. Click spin to spin, doesn't lose all your money.</h1>
+      <h1>Welcome to our slot machine that doesn't take real money.
+         Click spin to spin, doesn't lose all your money.</h1>
      <button onClick={spin}>Spin, -$50</button><br/>
      <div class ="symbolz">
 
